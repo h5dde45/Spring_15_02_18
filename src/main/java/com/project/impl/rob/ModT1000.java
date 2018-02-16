@@ -4,10 +4,22 @@ import com.project.interfaces.Hand;
 import com.project.interfaces.Head;
 import com.project.interfaces.Leg;
 import com.project.interfaces.Rob;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Required;
 
-public class ModT1000 implements Rob {
+public class ModT1000 implements Rob, InitializingBean, DisposableBean {
+
+    @Qualifier("getSonHead")
+    @Autowired
     private Head head;
+    @Qualifier("getToshHand")
+    @Autowired
     private Hand hand;
+    @Qualifier("getToshLeg")
+    @Autowired
     private Leg leg;
 
     private String color;
@@ -42,6 +54,7 @@ public class ModT1000 implements Rob {
         return head;
     }
 
+    @Required
     public void setHead(Head head) {
         this.head = head;
     }
@@ -50,6 +63,7 @@ public class ModT1000 implements Rob {
         return hand;
     }
 
+    @Required
     public void setHand(Hand hand) {
         this.hand = hand;
     }
@@ -58,6 +72,7 @@ public class ModT1000 implements Rob {
         return leg;
     }
 
+    @Required
     public void setLeg(Leg leg) {
         this.leg = leg;
     }
@@ -99,5 +114,23 @@ public class ModT1000 implements Rob {
     @Override
     public void secondAction() {
         System.out.println("T1000 do secondAction");
+    }
+
+//    public void initObject() {
+//        System.out.println("init");
+//    }
+//
+//    public void destroyObject() {
+//        System.out.println("destroy");
+//    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(this + " - destroy()");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " - init()");
     }
 }
