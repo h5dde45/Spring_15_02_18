@@ -6,7 +6,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class NewBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-        System.out.println(o+"postProcessBeforeInitialization");
+        System.out.println(o+" - postProcessBeforeInitialization");
         return o;
     }
 

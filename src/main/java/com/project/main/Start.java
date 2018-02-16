@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Start {
     public static void main(String[] args) {
         ApplicationContext context=new AnnotationConfigApplicationContext(SpringContext.class);
-        ModT1000 t1000 = (ModT1000) context.getBean("getModT1000");
+        ModT1000 t1000 = (ModT1000) context.getBean("modT1000");
 
 //        RobConveyor t1000Conveyor = (RobConveyor) context.getBean("t1000Conveyor");
 //        Rob rob1 = t1000Conveyor.createRob();

@@ -7,18 +7,16 @@ import com.project.interfaces.Rob;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ModT1000 implements Rob, InitializingBean, DisposableBean {
 
-    @Qualifier("getSonHead")
     @Autowired
     private Head head;
-    @Qualifier("getToshHand")
     @Autowired
     private Hand hand;
-    @Qualifier("getToshLeg")
     @Autowired
     private Leg leg;
 
@@ -27,6 +25,11 @@ public class ModT1000 implements Rob, InitializingBean, DisposableBean {
     private boolean soundEnable;
 
     public ModT1000() {
+
+    }
+
+    public ModT1000 modT1000(){
+        return new ModT1000();
     }
 
     public ModT1000(Head head, Hand hand, Leg leg) {
