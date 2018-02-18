@@ -1,9 +1,8 @@
 package com.dao.objects;
 
-public class Mp3 {
+public class Author {
     private int id;
     private String name;
-    private Author author;
 
     public int getId() {
         return id;
@@ -21,20 +20,11 @@ public class Mp3 {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
     @Override
     public String toString() {
-        return "Mp3{" +
+        return "Author{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", author=" + author +
                 '}';
     }
 }
